@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LandingPage.css">
+    <script src="script.js"></script>
+    <title>Right to Vote</title>
+    <style>
+        /* Add your custom styles for the modal */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 5px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            border-radius: 21px;
+
+            
+        }
+
+        .modal label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 21px; /* Larger font size for labels */
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 25px; /* Font size for input */
+        }
+
+        .modal button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px; /* Larger font size for button */
+            border-radius: 5px;
+        }
+
+         #countdown-container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #countdown {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .voting{
+             font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+         .slide-container {
+            position: relative;
+            display: flex;
+            font-size: 21px;
+            justify-content: center;
+        }
+
+        .slide-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .slide-label span {
+            margin-right: 10px;
+        }
+
+        .slide-input {
+            display: none;
+        }
+
+        .slide-button {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slide-button.on {
+            background-color: #4caf50; /* Change this to your desired color */
+        }
+
+        .slide-indicator {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 21px;
+            height: 21px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .anonymous-info {
+            display: none;
+            margin-top: 20px;
+            margin-bottom: 10px; 
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 21px; 
+        }
+
+        .anonymous-info.show {
+            display: block;
+            opacity: 1;
+        }
+
+        
+        #feedbackContainer {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 21px;
+        }
+
+        #feedbackForm {
+            max-width: 500px;
+            margin: 0 auto;
+            font-size: 21px;
+        }
+
+        #feedbackMessage {
+            display: none;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 21px;
+        }
+
+        #commentSection {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        textarea {
+            font-size: 25px;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 21px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container10">
+            <div class="logo"> <img src="https://dymk4s89vutua.cloudfront.net/wp-content/uploads/2019/05/r2v.png?x60899"> </div>
+            <nav>
+                <div class="nav-link"><a href="LandingPage.html">Home</a></div>
+                <div class="nav-link"><a href="FaceRec.html">Create Account</a></div>
+                <div class="nav-link"><a href="About Us.html" target="_blank">About Us</a></div>
+                <div class="nav-link dropdown">
+                    <a href="#">Features</a>
+                    <div class="dropdown-content">
+                        <a href="Voting Features.html" target="_blank">All Features</a>
+                        <a href="#Standard Features">Standard Features</a>
+                        <a href="#Premium Features">Premium Features</a>
+                    </div>
+                </div>
+                <div class="nav-link"><a href="VotingParty.html" target="_blank" class="login-btn">E-Voting</a></div>
+                <div class="nav-link"><a href="#" onclick="showEDataRoomPopup()" class="login-btn">E-dataroom</a></div>  &nbsp &nbsp
+                <div class="login"><a href="Voting Login.html" target="_blank" class="login-btn">Login</a></div>
+
+                <br/> <br/> 
+               
+                <div id="google_element"> </div>
+            </nav>
+        </div>
+    </header>
+
+           <br/> <br/> 
+
+            <div class="slide-container">
+        <div class="slide-label">
+            <span>Anonymous Voting</span>
+            <label class="slide-button" id="slideButton">
+                <input type="checkbox" class="slide-input" id="anonymousCheckbox">
+                <span class="slide-indicator"></span>
+            </label>
+        </div> 
+        <div class="anonymous-info" id="anonymousInfo">
+            Your name will be hidden during voting.
+        </div>
+    </div>
+
+         <br/>  
+
+        <div id="countdown-container">
+            <p class="voting"> Voting Countdown Started : </p>
+    <div id="countdown"></div>
+</div>
+
+      <br/> 
+
+
+     <div class="container">
+  <div class="image-container">
+    <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/evotingbanner1.jpg?x47200" alt="Image" width="1300px">
+  </div>
+</div>
+ 
+    <div class="box">
+        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/certified.png?x47200" alt="Image 1">
+        <p class="wrap"> Certified
+Govt. of India Certified and Approved
+Right2Vote's eVoting platform is tested and certified by Standardization Testing and Quality Certification (STQC) Directorate under Ministry of Electronics and Information Technology (MeiTY), Government of India. It is also approved by the Ministry of Corporate Affairs (MCA), Government of India. Check out the certificates here.  </p>
+    </div>
+    <div class="box">
+        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/secured.png?x47200" alt="Image 2">
+        <p class="wrap"> 100% Secure
+Right2Vote's online voting system has many layers of security making the platform 100% secure. Security features include encryption, authentication based on OTP, Aadhaar, Biometric. Features like voter selfie, double authentication, audit trail, voter receipt and much more. </p>
+    </div>
+    <div class="box">
+        <img src=" https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/easy-to-use.png?x47200 " alt="Image 3">
+        <p class="wrap"> Easy to Use
+Right2Vote's mobile election system is very user friendly and voting can be done anytime and from anywhere within seconds. Voting can be done via mobile browser, website, android app or iOS app. Check the demo video here. </p>
+    </div>
+
+  <br/> <br/> <br/>
+ 
+    <div class="box">
+        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/cost-effective.png?x47200" alt="Image 1">
+        <p class="wrap"> The complete election can be conducted for as low as Rs 10,000. Cost includes the cost of setting up the poll, sending invites, cloud hosting, voting process and also live result counting. No need to spend a single rupee on election booths, manpower, EVM machines, ballot paper, security, logistics, counting etc. Check out our transparent pricing here. </p>
+    </div>
+    <div class="box">
+        <img src="https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/feature-rich.png?x47200" alt="Image 2">
+        <p class="wrap"> Right2Vote's online election software is very customizable and has more than 1600 different types of election configuration possible. Optional features include secret ballot, audit trail, Voter selfie, voter receipt, IP restriction, geo tagging, geo fencing, result multi-lock, Single preference vote and many more. </p>
+    </div>
+    <div class="box">
+        <img src=" https://dymk4s89vutua.cloudfront.net/wp-content/plugins/r2v-api/images/icons/2000+.png?x47200 " alt="Image 3">
+        <p class="wrap"> 3000+ elections every year
+Right2Vote's election site is being used by leading companies like Tata, Godrej, PwC, EY, KPMG, ILFS, SBI. All kinds of organizations including associations, corporates, cooperatives, clubs, colleges, insolvency professionals, NGOs, unions, societies are regularly using Right2Vote mobile eVoting software. Check out our customer list.8  </p>
+    </div>
+
+     <center>  <p class="text"> <b> Industries using our eVoting Services </b> </p> </center>
+
+   <div class="box2">
+  <div class="info">
+    <h2>eVoting under IBC</h2>
+    <p>eVoting under IBC</p>
+    <p>Online voting software for creditors, homebuyers and other class of creditors eVoting under the Insolvency and Bankruptcy Code (IBC).</p>
+  </div>
+</div>
+
+   <div class="box2">
+  <div class="info">
+    <h2>IBC</h2>
+    <p>Housing Societies</p>
+    <p>Online voting technology for committee elections and voting on resolutions in apartments, housing societies, home owners assocations.</p>
+  </div>
+</div>
+
+
+   <div class="box2">
+  <div class="info">
+    <h2>Associations</h2>
+    <p>eVoting under IBC</p>
+    <p>eVoting technology for elections in professional associations, trade associations, social assocations, employee assocations and all other assocations.</p>
+  </div>
+</div>
+
+   <div class="box2">
+  <div class="info">
+    <h2>Colleges</h2>
+    <p>eVoting under IBC</p>
+    <p>Online election platform for student elections, hostel elections, department elections, alumni elections, polling in classroom, student opinion poll and contests.</p>
+  </div>
+</div>
+
+
+  <div class="box2">
+  <div class="info">
+    <h2>Clubs</h2>
+    <p>eVoting under IBC</p>
+    <p>eVoting and opinion poll software for elections and resolution voting in gymkhanas, social clubs, activity clubs, professional clubs and all other clubs.</p>
+  </div>
+</div>
+
+
+<div class="box2">
+  <div class="info">
+    <h2>Corporate</h2>
+    <p>eVoting under IBC</p>
+    <p>eVoting technology for elections, resolutions and opinion polls in Corporates.</p>
+  </div>
+</div>
+
+<div class="box2">
+  <div class="info">
+    <h2>NGOs</h2>
+    <p>eVoting under IBC</p>
+    <p>Online election software for voting in Non Government Organizations, trusts, social groups, self help groups, religious groups.</p>
+  </div>
+</div>
+
+<div class="box2">
+  <div class="info">
+    <h2>Unions</h2>
+    <p>eVoting under IBC</p>
+    <p> Online election technology for employee unions, trade unions, professional unions and other unions. </p>
+  </div>
+</div>
+
+<div class="box2">
+  <div class="info">
+    <h2>Others</h2>
+    <p>eVoting under IBC</p>
+    <p>Online election website for elections, resolution voting, opinion poll, live voting in all kind of organization.</p>
+  </div>
+</div>
+
+ <div id="myModal" class="modal">
+        <label for="userId">Admin Login Id:</label>
+        <input type="text" id="userId" required>
+        <button onclick="validateUserID()">Access E-DataRoom</button>
+    </div>
+
+    <br/> <br/> <br/> 
+
+    <div id="myModal" class="modal">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" required>
+        <button onclick="validateUserID()">Access E-DataRoom</button>
+    </div>
+
+    <br/> <br/> <br/> <br/>
+ 
+    <center> <p class="text100"> Give Us a Happy Star !! </p>  </center>    
+ 
+    <ul class="ratings">
+        <li class="star"></li>
+        <li class="star"></li>
+        <li class="star"></li>
+        <li class="star"></li>
+        <li class="star"></li>
+    </ul>
+
+    <br/> <br/> 
+
+    <div id="feedbackContainer">
+        <form id="feedbackForm">
+            <label for="feedback">Your Feedback:</label>
+            <br>
+            <textarea id="feedback" name="feedback" rows="6" cols="50"></textarea>
+            <br><br>
+            <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+        </form>
+
+        <div id="feedbackMessage">
+            <strong>Thank you for your feedback!</strong>
+        </div>
+
+        <div id="commentSection">
+            <h2>Comments</h2>
+            <ul id="commentList"></ul>
+        </div>
+    </div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("google_element");
+        }
+
+        function showEDataRoomPopup() {
+            // Display the modal
+            alert("Note : Admin Id Should match with the Goverment 'Id'");
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function validateUserID() {
+            // Get the entered user ID
+            const userId = document.getElementById("userId").value;
+
+            // Implement your authentication logic here
+            // For now, just show an alert for demonstration purposes
+            alert("User ID: " + userId + " validated! Redirecting to E-DataRoom...");
+
+             window.location.href = 'E DataRoom.html';
+
+            // Close the modal after validation
+            document.getElementById("myModal").style.display = "none";
+        }
+
+         
+      // Set the initial duration for the countdown (30 minutes)
+let remainingTime = 30 * 60 * 1000;
+
+// Update the countdown every second
+const countdownInterval = setInterval(function() {
+    // Calculate remaining minutes and seconds
+    const minutes = Math.floor(remainingTime / (1000 * 60));
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    // Display the countdown in the div
+    document.getElementById('countdown').innerHTML = `${minutes} minutes, ${seconds} seconds`;
+
+    // Check if the countdown has reached zero
+    if (remainingTime <= 0) {
+        clearInterval(countdownInterval);
+        document.getElementById('countdown').innerHTML = 'Countdown expired';
+    } else {
+        // Decrease remaining time by one second
+        remainingTime -= 1000;
+    }
+}, 1000); // Update every second
+
+ 
+
+
+
+    const slideButton = document.getElementById('slideButton');
+        const anonymousCheckbox = document.getElementById('anonymousCheckbox');
+        const anonymousInfo = document.getElementById('anonymousInfo');
+
+        slideButton.addEventListener('click', function () {
+            if (anonymousCheckbox.checked) {
+                slideButton.classList.add('on');
+                anonymousInfo.classList.add('show');
+            } else {
+                slideButton.classList.remove('on');
+                anonymousInfo.classList.remove('show');
+            }
+        });
+ 
+       function submitFeedback() {
+            const feedback = document.getElementById('feedback').value;
+            
+            if (feedback.trim() !== '') {
+                // You can add your logic here to send feedback to the server
+
+                // For this example, let's add the comment to the comment section
+                const commentList = document.getElementById('commentList');
+                const newComment = document.createElement('li');
+                newComment.textContent = feedback;
+                commentList.appendChild(newComment);
+
+                // Show the feedback message
+                document.getElementById('feedbackForm').style.display = 'none';
+                document.getElementById('feedbackMessage').style.display = 'block';
+            }
+        }
+
+</script>
+ 
+</body>
+</html>

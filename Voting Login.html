@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Online Voting.css">
+    <script src="script.js" defer></script>
+    <style>
+        a {
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+         #aadhaarForm {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+         #strictNote {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <form id="loginForm" action="process_login.php" method="post">
+            <h1 class="text">RIGHT TO VOTE</h1>
+            <img src="https://dymk4s89vutua.cloudfront.net/wp-content/uploads/2019/05/r2v.png?x60899">
+    </header>
+
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+    <div class="container">
+        <form>
+
+            <div class="container10">
+
+                <img style="border-radius: 21px; " src="https://right2vote.in/wp-content/plugins/r2v-api/images/logos/r2vlogo.webp?x67435">
+
+            </div>
+
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div id="aadhaarForm">
+            <label for="aadhaarImage">Upload Aadhaar Card Image:</label>
+            <input type="file" id="aadhaarImage" name="aadhaarImage" accept="image/*" required>
+            </div>
+
+    <div id="strictNote">
+        <p>Strict Note :- If the Aadhaar card information is not valid, your vote may be cancelled.</p>
+    </div>
+ 
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="popup" id="popup">
+        You can vote now! You are greater than 18 years.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('#loginForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const usernameInput = document.getElementById('username');
+                const usernameValue = usernameInput.value;
+
+                const passwordInput = document.getElementById('password');
+                const passwordValue = passwordInput.value;
+
+                const dobInput = document.getElementById('dob');
+                const dobValue = dobInput.value;
+
+                if (!isValidDateOfBirth(dobValue)) {
+                    alert('Invalid Date of Birth. Please enter a valid date.');
+                } else {
+                    const age = calculateAge(dobValue);
+                    if (age >= 18) {
+                        // Store email in local storage not storing the Password because of the 
+                        // security reaons and we dont want to leak any sensitive information
+                        localStorage.setItem('username', usernameValue);
+
+                        alert('Email successfully stored in local storage!')
+
+                        // Redirect to the landing page after successful login
+                         alert('Welcome Login Succesfull !!  You can vote now! You are greater than 18 years.');
+                        window.location.href = 'LandingPage.html';
+                    } else {
+                        alert('Invalid Date of Birth. Please enter a valid date.');
+                    }
+                }
+            });
+
+            function isValidDateOfBirth(dateOfBirth) {
+                const currentDate = new Date();
+                const inputDate = new Date(dateOfBirth);
+
+                if (isNaN(inputDate.getTime())) {
+                    return false;
+                }
+
+                if (currentDate < inputDate) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            function calculateAge(dateOfBirth) {
+                const currentDate = new Date();
+                const inputDate = new Date(dateOfBirth);
+                return Math.floor((currentDate - inputDate) / (365.25 * 24 * 60 * 60 * 1000));
+            }
+
+            function showCustomPopupMessage() {
+                const popup = document.createElement('div');
+                popup.classList.add('custom-popup');
+                popup.innerHTML = `
+            <div class="popup-content">
+
+                   Welcome Login Succesfull !! 
+
+                You can vote now! You are greater than 18 years.
+                <button id="popup-ok">OK</button>
+            </div>
+        `;
+                document.body.appendChild(popup);
+                const okButton = document.getElementById('popup-ok');
+                okButton.addEventListener('click', function () {
+                    popup.remove();
+                });
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html> 

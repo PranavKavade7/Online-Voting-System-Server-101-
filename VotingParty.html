@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="VotingParty.css">
+    <script src="VotingParty.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1 class="animate-charcter"> VOTE, it’s your right! </h1>
+    </div>
+  </div>
+</div>
+         
+    </header>
+
+    <main>
+         <div id="candidates" class="candidates">
+        <!-- Candidates will be statically added here with logos -->
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Aam_Aadmi_Party_logo_%28English%29.svg/50px-Aam_Aadmi_Party_logo_%28English%29.svg.png" alt="Party 1 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 1')"> AAP (Aam Aadmi Party) </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Elephant_Bahujan_Samaj_Party.svg/50px-Elephant_Bahujan_Samaj_Party.svg.png" alt="Party 2 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 2')"> Bahujan Samaj Party </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/BJP_Flag.svg/50px-BJP_Flag.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Bhartiye Janata Party </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/CPI-M-flag.svg/50px-CPI-M-flag.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Communist Party Of India </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Indian_National_Congress_Flag.svg/50px-Indian_National_Congress_Flag.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Indian National Congress </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NPP_Flag.jpg/50px-NPP_Flag.jpg" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> National People Party </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/All_India_Trinamool_Congress_flag_%282%29.svg/50px-All_India_Trinamool_Congress_flag_%282%29.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> All India Trinamool Congress </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/CPI-banner.svg/50px-CPI-banner.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Communist Party Of India </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/JD%28S%29_Flag.png/50px-JD%28S%29_Flag.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Janata Dal (Secular) </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Janata_Dal_%28United%29_Flag.svg/50px-Janata_Dal_%28United%29_Flag.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">   Janata Dal (United) </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/AIADMK_Official_Flag.png/50px-AIADMK_Official_Flag.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> All india A.D.M.K </div>
+        </div>
+        <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_DMK.svg/50px-Flag_DMK.svg.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Dravida Muneza Kanagham </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_the_Naga_People%27s_Front.png/50px-Flag_of_the_Naga_People%27s_Front.png" alt="Party 3 Logo" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Naga People Front </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_Nationalist_Congress_Party.svg/50px-Flag_of_Nationalist_Congress_Party.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> National Congress Party </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/RJD_Flag.svg/50px-RJD_Flag.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Rashtriya Janata Dal </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Telugu_Desam_Party_Flag.png/50px-Telugu_Desam_Party_Flag.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Telgu Dessam Party </div>
+        </div>
+           <div class="party">
+            <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/All_India_N.R._Congress.png/50px-All_India_N.R._Congress.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  All India N.R. Congress </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kerala-Congress-flag.svg/50px-Kerala-Congress-flag.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Kerala Congress </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Partyrop.png/50px-Partyrop.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> N.D Progressive Party </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SAD_flag.svg/50px-SAD_flag.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Shiromani Akali Dal </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sikkim-Democratic-Front-flag.svg/50px-Sikkim-Democratic-Front-flag.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Sikkim Democratic Front </div>
+        </div>
+         <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sikkim_Krantikari_Morcha_flag.png/50px-Sikkim_Krantikari_Morcha_flag.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Sikkim Front </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Shiv_Sena_flag.jpg/50px-Shiv_Sena_flag.jpg" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Shiv - sena  </div>
+        </div>
+        
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Shiv_Sena_%28Uddhav_Balasaheb_Thackeray%29_flag.svg/50px-Shiv_Sena_%28Uddhav_Balasaheb_Thackeray%29_flag.svg.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Shiv-sena (U.B.K) </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tipra_Logo.jpg/50px-Tipra_Logo.jpg" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')"> Tipra Motha Party  </div>
+        </div>
+          <div class="party">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Winnower_Symbol.png/50px-Winnower_Symbol.png" class="party-logo">
+            <div class="vote-button" onclick="vote('Party 3')">  Voice Party </div>
+        </div>
+    </div>
+</div>
+    </main>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <p id="popup-message">Vote successful!</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>

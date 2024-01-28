@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #333;
+}
+
+header p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.feature-section {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    color: #333;
+}
+
+.feature-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the box's total width and height */
+}
+
+.text{
+    font-family: sans-serif;
+    font-size: 21px;
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+}
+
+.feature-section{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #74EBD5;
+background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+
+    
+    border-radius: 15px;
+    font-family: sans-serif;
+    font-size: 19px;
+    font: bold;
+    justify-content: center;
+    padding: 30px;
+
+}
+
+.feature-box{
+    padding: 30px;
+    font-family: sans-serif;
+    font: bold;
+    transition: all ease 1.5s;
+}
+
+.feature-box:hover{
+    background-color: #FBDA61;
+background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+
+}
+ 
+a{
+    text-decoration: none;
+    color: black;
+} 
+
+#text1{
+    color: red;
+    font-family: sans-serif;
+    font-size: 31px;
+}
+ 
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.right-section {
+    flex: 2;
+    padding-left: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.text{
+    font-family: sans-serif;
+    font-size: 21px;
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.text:hover{
+    transition: all ease 1.5s;
+    background: hsla(208, 7%, 55%, 1);
+
+background: linear-gradient(90deg, hsla(208, 7%, 55%, 1) 0%, hsla(191, 5%, 40%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(208, 7%, 55%, 1) 0%, hsla(191, 5%, 40%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(208, 7%, 55%, 1) 0%, hsla(191, 5%, 40%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#858E96", endColorstr="#60696B", GradientType=1 );
+} 

@@ -1,0 +1,51 @@
+<?php
+
+$name = $_POST['name'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$otp = $_POST['otp'];
+
+$to_email = $email;
+$subject = "Here is your OTP";
+$body = "OTP =   " . ($otp + 9) . " - 6 / 2 ( 1 + 2 ) )               :)";
+$headers = "From: Right_to_vote_Pvt(LTD)gmail.com";
+
+if (mail($to_email, $subject, $body, $headers)) {
+    echo "Email successfully sent to $to_email...";
+} else {
+    echo "Email sending failed...";
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+
+    <h1>ENTER OTP</h1>
+
+    <form action="submit.php" method="POST">
+
+        <input type="hidden" name="name" value="<?php echo $name ?>">
+        <input type="hidden" name="email" value="<?php echo $email ?>">
+        <input type="hidden" name="password" value="<?php echo $password ?>">
+
+        <input type="number" name="check_otp" placeholder="ENTER OTP">
+        <input type="hidden" name="otp" value="<?php echo $otp ?>">
+        <button type="submit">VEFIFY</button>
+
+    </form>
+
+</body>
+
+</html>
